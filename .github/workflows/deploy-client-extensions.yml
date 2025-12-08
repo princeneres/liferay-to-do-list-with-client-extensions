@@ -1,0 +1,79 @@
+name: Deploy Client Extensions
+
+on:
+  push:
+    branches:
+      - master
+    paths:
+      - 'client-extensions/**'
+
+env:
+  JAVA_VERSION: '21'
+  JAVA_DISTRIBUTION: 'zulu'
+  NODE_VERSION: '20.10.0'
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Set up Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: ${{ env.JAVA_DISTRIBUTION }}
+          java-version: ${{ env.JAVA_VERSION }}
+      
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+      
+      - name: Cache Gradle packages
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.gradle/caches
+            ~/.gradle/wrapper
+          key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
+          restore-keys: |
+            ${{ runner.os }}-gradle-
+      
+      - name: Grant execute permission for gradlew
+        run: chmod +x gradlew
+      
+      - name: Build client extensions
+        run: ./gradlew :client-extensions:build
+      
+      - name: Prepare deployment artifacts
+        run: |
+          mkdir -p deploy-artifacts
+          find client-extensions -name "*.zip" -o -name "dist.*.tar.gz" | while read file; do
+            cp "$file" deploy-artifacts/
+          done
+          ls -la deploy-artifacts/
+      
+      - name: Deploy to server via SCP
+        uses: appleboy/scp-action@v0.1.7
+        with:
+          host: ${{ secrets.DEPLOY_HOST }}
+          username: ${{ secrets.DEPLOY_USER }}
+          key: ${{ secrets.DEPLOY_SSH_KEY }}
+          port: ${{ secrets.DEPLOY_PORT || 22 }}
+          source: "deploy-artifacts/*"
+          target: ${{ secrets.DEPLOY_PATH }}
+          strip_components: 1
+      
+      - name: Notify deployment success
+        if: success()
+        run: |
+          echo "✅ Client extensions deployed successfully to ${{ secrets.DEPLOY_HOST }}"
+          echo "Deployment path: ${{ secrets.DEPLOY_PATH }}"
+      
+      - name: Notify deployment failure
+        if: failure()
+        run: |
+          echo "❌ Deployment failed. Please check the logs above."
+          exit 1
