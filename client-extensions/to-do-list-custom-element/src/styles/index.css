@@ -1,3 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.to-do-list-wrapper {
+    background-color: black;
+}
