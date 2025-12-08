@@ -50,9 +50,8 @@ jobs:
       - name: Prepare deployment artifacts
         run: |
           mkdir -p deploy-artifacts
-          find client-extensions -name "*.zip" -o -name "dist.*.tar.gz" | while read file; do
-            cp "$file" deploy-artifacts/
-          done
+          find client-extensions -path "*/dist/*.zip" -exec cp {} deploy-artifacts/ \;
+          echo "📦 Artifacts found:"
           ls -la deploy-artifacts/
       
       - name: Deploy to server via SCP
