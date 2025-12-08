@@ -27,7 +27,7 @@ function App({ appTitle = "To-Do List" }) {
     }, []);
 
     return (
-        <div className="App">
+        <div className="to-do-list-wrapper py-4">
             <div className="w-full max-w-4xl mx-auto flex flex-col items-center gap-5">
                 <h2 className="text-2xl font-bold">{appTitle}</h2>
                 <Form
