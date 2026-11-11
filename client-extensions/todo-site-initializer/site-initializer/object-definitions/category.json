@@ -1,0 +1,32 @@
+{
+	"enableComments": false,
+	"externalReferenceCode": "TODO_CATEGORY",
+	"label": {
+		"en_US": "Category",
+		"pt_BR": "Categoria"
+	},
+	"name": "Category",
+	"objectFields": [
+		{
+			"DBType": "String",
+			"businessType": "Text",
+			"externalReferenceCode": "TODO_CATEGORY_NAME",
+			"indexed": true,
+			"indexedAsKeyword": false,
+			"indexedLanguageId": "",
+			"label": {
+				"en_US": "Name",
+				"pt_BR": "Nome"
+			},
+			"name": "name",
+			"required": true,
+			"unique": true
+		}
+	],
+	"pluralLabel": {
+		"en_US": "Categories",
+		"pt_BR": "Categorias"
+	},
+	"scope": "company",
+	"titleObjectFieldName": "name"
+}

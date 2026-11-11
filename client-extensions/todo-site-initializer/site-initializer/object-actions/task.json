@@ -1,0 +1,41 @@
+{
+	"object-actions": [
+		{
+			"active": true,
+			"conditionExpression": "equals(priority, \"high\")",
+			"description": "High priority tasks start in progress.",
+			"externalReferenceCode": "TODO_TASK_START_HIGH_PRIORITY",
+			"label": {
+				"en_US": "Start high priority tasks",
+				"pt_BR": "Iniciar tarefas de prioridade alta"
+			},
+			"name": "startHighPriorityTask",
+			"objectActionExecutorKey": "update-object-entry",
+			"objectActionTriggerKey": "onAfterAdd",
+			"parameters": {
+				"objectDefinitionId": "[$OBJECT_DEFINITION_ID:Task$]",
+				"predefinedValues": [
+					{
+						"inputAsValue": true,
+						"name": "state",
+						"value": "inProgress"
+					}
+				]
+			}
+		},
+		{
+			"active": true,
+			"description": "Sends the new task to the To-Do Object Action microservice.",
+			"externalReferenceCode": "TODO_TASK_SEND_TO_INTEGRATION",
+			"label": {
+				"en_US": "Send to integration",
+				"pt_BR": "Enviar para integração"
+			},
+			"name": "sendTaskToIntegration",
+			"objectActionExecutorKey": "function#todo-object-action",
+			"objectActionTriggerKey": "onAfterAdd",
+			"parameters": {}
+		}
+	],
+	"objectDefinitionId": "[$OBJECT_DEFINITION_ID:Task$]"
+}

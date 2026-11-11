@@ -1,0 +1,28 @@
+{
+	"object-fields": [
+		{
+			"DBType": "Integer",
+			"businessType": "Aggregation",
+			"externalReferenceCode": "TODO_CATEGORY_TASK_COUNT",
+			"indexedAsKeyword": false,
+			"label": {
+				"en_US": "Tasks",
+				"pt_BR": "Tarefas"
+			},
+			"name": "taskCount",
+			"objectFieldSettings": [
+				{
+					"name": "function",
+					"value": "COUNT"
+				},
+				{
+					"name": "objectRelationshipName",
+					"value": "categoryTasks"
+				}
+			],
+			"required": false,
+			"state": false
+		}
+	],
+	"objectDefinitionId": "[$OBJECT_DEFINITION_ID:Category$]"
+}

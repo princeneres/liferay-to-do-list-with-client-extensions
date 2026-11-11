@@ -1,0 +1,5 @@
+.todo-hero {
+	background: linear-gradient(135deg, var(--brand-color-1), var(--brand-color-3));
+	border-radius: var(--border-radius-lg);
+	color: var(--white);
+}

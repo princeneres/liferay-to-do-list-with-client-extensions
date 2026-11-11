@@ -1,0 +1,71 @@
+{
+	"pageElement": {
+		"pageElements": [
+			{
+				"definition": {
+					"fragment": {
+						"key": "todo-hero"
+					},
+					"fragmentConfig": {},
+					"fragmentFields": [
+						{
+							"id": "title",
+							"value": {
+								"text": {
+									"value_i18n": {
+										"pt_BR": "Organize suas tarefas"
+									}
+								}
+							}
+						},
+						{
+							"id": "text",
+							"value": {
+								"text": {
+									"value_i18n": {
+										"pt_BR": "Um Object, dois custom elements e nenhuma linha de Service Builder."
+									}
+								}
+							}
+						}
+					],
+					"indexed": true
+				},
+				"type": "Fragment"
+			},
+			{
+				"definition": {
+					"fragment": {
+						"key": "todo-profile-switcher"
+					},
+					"fragmentConfig": {},
+					"fragmentFields": [],
+					"indexed": true
+				},
+				"type": "Fragment"
+			},
+			{
+				"definition": {
+					"widgetInstance": {
+						"widgetName": "com_liferay_client_extension_web_internal_portlet_ClientExtensionEntryPortlet_[$COMPANY_ID$]_LXC_todo_summary"
+					}
+				},
+				"type": "Widget"
+			},
+			{
+				"definition": {
+					"widgetInstance": {
+						"widgetName": "com_liferay_client_extension_web_internal_portlet_ClientExtensionEntryPortlet_[$COMPANY_ID$]_LXC_todo_app"
+					}
+				},
+				"type": "Widget"
+			}
+		],
+		"type": "Root"
+	},
+	"settings": {
+		"masterPage": {
+			"key": "to-do-master"
+		}
+	}
+}

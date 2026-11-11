@@ -25,3 +25,5 @@
 /plugins-sdk/dist
 /plugins-sdk/lib
 test-results
+**/.env
+liferay.pid

@@ -1,0 +1,17 @@
+{
+	"description": "Notifies task managers when a task is created.",
+	"editorType": "richText",
+	"externalReferenceCode": "TODO_TASK_CREATED",
+	"name": "Task created",
+	"recipientType": "role",
+	"recipients": [
+		{
+			"roleName": "Task Manager"
+		}
+	],
+	"subject": {
+		"en_US": "New task: [%TASK_TITLE%]",
+		"pt_BR": "Nova tarefa: [%TASK_TITLE%]"
+	},
+	"type": "userNotification"
+}

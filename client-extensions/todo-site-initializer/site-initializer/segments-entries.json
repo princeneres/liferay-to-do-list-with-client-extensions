@@ -1,0 +1,23 @@
+[
+	{
+		"active": "true",
+		"criteria": {
+			"criteria": {
+				"context": {
+					"conjunction": "and",
+					"filterString": "(cookies/any(c:c eq 'todo-profile=empresa'))",
+					"typeValue": "context"
+				}
+			},
+			"filterStrings": {
+				"context": "(cookies/any(c:c eq 'todo-profile=empresa'))"
+			}
+		},
+		"name_i18n": {
+			"en-US": "Business profile",
+			"pt-BR": "Perfil empresa"
+		},
+		"segmentsEntryKey": "TODO-PROFILE-BUSINESS",
+		"type": "com.liferay.portal.kernel.model.User"
+	}
+]

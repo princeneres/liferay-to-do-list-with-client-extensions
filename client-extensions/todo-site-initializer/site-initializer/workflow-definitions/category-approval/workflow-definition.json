@@ -1,0 +1,10 @@
+{
+	"active": true,
+	"description": "A task manager approves new categories.",
+	"name": "Category Approval",
+	"title": "Category Approval",
+	"title_i18n": {
+		"en_US": "Category Approval",
+		"pt_BR": "Aprovação de categoria"
+	}
+}

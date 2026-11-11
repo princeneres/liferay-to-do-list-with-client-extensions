@@ -1,0 +1,15 @@
+assemble:
+    - from: batch
+      into: batch
+todo-batch:
+    name: To-Do Batch
+    oAuthApplicationHeadlessServer: todo-batch-oauth-application-headless-server
+    type: batch
+todo-batch-oauth-application-headless-server:
+    .serviceAddress: localhost:8080
+    .serviceScheme: http
+    name: To-Do Batch OAuth Application
+    scopes:
+        - c_task.everything
+        - Liferay.Headless.Batch.Engine.everything
+    type: oAuthApplicationHeadlessServer

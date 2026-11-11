@@ -1,0 +1,12 @@
+{
+	"devDependencies": {
+		"vite": "5.4.11"
+	},
+	"name": "todo-app",
+	"private": true,
+	"scripts": {
+		"build": "vite build"
+	},
+	"type": "module",
+	"version": "1.0.0"
+}

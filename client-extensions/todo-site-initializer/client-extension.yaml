@@ -1,0 +1,16 @@
+assemble:
+    - from: site-initializer
+      into: site-initializer
+todo-site-initializer:
+    name: To-Do Workshop Site Initializer
+    oAuthApplicationHeadlessServer: todo-site-initializer-oauth-application-headless-server
+    siteExternalReferenceCode: TODO_WORKSHOP
+    siteName: To-Do Workshop
+    type: siteInitializer
+todo-site-initializer-oauth-application-headless-server:
+    .serviceAddress: localhost:8080
+    .serviceScheme: http
+    name: To-Do Workshop Site Initializer OAuth Application
+    scopes:
+        - Liferay.Headless.Site.everything
+    type: oAuthApplicationHeadlessServer

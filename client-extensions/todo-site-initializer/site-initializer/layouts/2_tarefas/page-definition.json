@@ -1,0 +1,141 @@
+{
+	"pageElement": {
+		"pageElements": [
+			{
+				"definition": {
+					"fragment": {
+						"key": "BASIC_COMPONENT-heading"
+					},
+					"fragmentConfig": {},
+					"fragmentFields": [
+						{
+							"id": "element-text",
+							"value": {
+								"text": {
+									"value_i18n": {
+										"pt_BR": "Tarefas"
+									}
+								}
+							}
+						}
+					],
+					"indexed": true
+				},
+				"type": "Fragment"
+			},
+			{
+				"definition": {
+					"collectionConfig": {
+						"collectionReference": {
+							"className": "[$OBJECT_DEFINITION_CLASS_NAME:Task$]"
+						},
+						"collectionType": "CollectionProvider"
+					},
+					"displayAllItems": false,
+					"displayAllPages": true,
+					"listStyle": "",
+					"numberOfColumns": 3,
+					"numberOfItems": 12,
+					"numberOfItemsPerPage": 12,
+					"numberOfPages": 5,
+					"paginationType": "Numeric",
+					"showAllItems": false,
+					"templateKey": ""
+				},
+				"pageElements": [
+					{
+						"definition": {
+							"collectionItemConfig": {}
+						},
+						"pageElements": [
+							{
+								"definition": {
+									"fragment": {
+										"key": "todo-task-card"
+									},
+									"fragmentConfig": {},
+									"fragmentFields": [
+										{
+											"id": "title",
+											"value": {
+												"fragmentLink": {
+													"value": {
+														"href": {
+															"mapping": {
+																"fieldKey": "displayPageURL",
+																"itemReference": {
+																	"contextSource": "CollectionItem"
+																}
+															}
+														}
+													}
+												},
+												"text": {
+													"mapping": {
+														"fieldKey": "ObjectField_title",
+														"itemReference": {
+															"contextSource": "CollectionItem"
+														}
+													}
+												}
+											}
+										},
+										{
+											"id": "description",
+											"value": {
+												"text": {
+													"mapping": {
+														"fieldKey": "ObjectField_description",
+														"itemReference": {
+															"contextSource": "CollectionItem"
+														}
+													}
+												}
+											}
+										},
+										{
+											"id": "state",
+											"value": {
+												"text": {
+													"mapping": {
+														"fieldKey": "ObjectField_state",
+														"itemReference": {
+															"contextSource": "CollectionItem"
+														}
+													}
+												}
+											}
+										},
+										{
+											"id": "priority",
+											"value": {
+												"text": {
+													"mapping": {
+														"fieldKey": "ObjectField_priority",
+														"itemReference": {
+															"contextSource": "CollectionItem"
+														}
+													}
+												}
+											}
+										}
+									],
+									"indexed": true
+								},
+								"type": "Fragment"
+							}
+						],
+						"type": "CollectionItem"
+					}
+				],
+				"type": "Collection"
+			}
+		],
+		"type": "Root"
+	},
+	"settings": {
+		"masterPage": {
+			"key": "to-do-master"
+		}
+	}
+}

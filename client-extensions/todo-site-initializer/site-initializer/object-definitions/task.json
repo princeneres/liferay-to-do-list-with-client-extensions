@@ -1,0 +1,195 @@
+{
+	"enableCategorization": true,
+	"enableComments": true,
+	"externalReferenceCode": "TODO_TASK",
+	"label": {
+		"en_US": "Task",
+		"pt_BR": "Tarefa"
+	},
+	"name": "Task",
+	"objectFields": [
+		{
+			"DBType": "String",
+			"businessType": "Text",
+			"externalReferenceCode": "TODO_TASK_TITLE",
+			"indexed": true,
+			"indexedAsKeyword": false,
+			"indexedLanguageId": "",
+			"label": {
+				"en_US": "Title",
+				"pt_BR": "Título"
+			},
+			"name": "title",
+			"required": true
+		},
+		{
+			"DBType": "Clob",
+			"businessType": "LongText",
+			"externalReferenceCode": "TODO_TASK_DESCRIPTION",
+			"indexed": true,
+			"indexedAsKeyword": false,
+			"indexedLanguageId": "",
+			"label": {
+				"en_US": "Description",
+				"pt_BR": "Descrição"
+			},
+			"name": "description",
+			"required": false
+		},
+		{
+			"DBType": "String",
+			"businessType": "Picklist",
+			"defaultValue": "medium",
+			"externalReferenceCode": "TODO_TASK_PRIORITY",
+			"indexed": true,
+			"indexedAsKeyword": true,
+			"label": {
+				"en_US": "Priority",
+				"pt_BR": "Prioridade"
+			},
+			"listTypeDefinitionExternalReferenceCode": "TASK_PRIORITY",
+			"name": "priority",
+			"required": true
+		},
+		{
+			"DBType": "String",
+			"businessType": "Picklist",
+			"defaultValue": "open",
+			"externalReferenceCode": "TODO_TASK_STATE",
+			"indexed": true,
+			"indexedAsKeyword": true,
+			"label": {
+				"en_US": "State",
+				"pt_BR": "Estado"
+			},
+			"listTypeDefinitionExternalReferenceCode": "TASK_STATE",
+			"name": "state",
+			"objectFieldSettings": [
+				{
+					"name": "stateFlow",
+					"value": {
+						"objectStates": [
+							{
+								"key": "open",
+								"objectStateTransitions": [
+									{
+										"key": "inProgress"
+									},
+									{
+										"key": "done"
+									}
+								]
+							},
+							{
+								"key": "inProgress",
+								"objectStateTransitions": [
+									{
+										"key": "open"
+									},
+									{
+										"key": "done"
+									}
+								]
+							},
+							{
+								"key": "done",
+								"objectStateTransitions": [
+									{
+										"key": "inProgress"
+									}
+								]
+							}
+						]
+					}
+				}
+			],
+			"required": true,
+			"state": true
+		},
+		{
+			"DBType": "Date",
+			"businessType": "Date",
+			"externalReferenceCode": "TODO_TASK_DUE_DATE",
+			"indexed": true,
+			"indexedAsKeyword": false,
+			"label": {
+				"en_US": "Due date",
+				"pt_BR": "Prazo"
+			},
+			"name": "dueDate",
+			"required": false
+		},
+		{
+			"DBType": "String",
+			"businessType": "Text",
+			"externalReferenceCode": "TODO_TASK_INTEGRATION_CODE",
+			"indexed": true,
+			"indexedAsKeyword": true,
+			"label": {
+				"en_US": "Integration code",
+				"pt_BR": "Código de integração"
+			},
+			"name": "integrationCode",
+			"required": false
+		}
+	],
+	"objectValidationRules": [
+		{
+			"active": true,
+			"engine": "ddm",
+			"errorLabel": {
+				"en_US": "The title must have at least 3 characters.",
+				"pt_BR": "O título precisa ter pelo menos 3 caracteres."
+			},
+			"name": {
+				"en_US": "Minimum title length",
+				"pt_BR": "Tamanho mínimo do título"
+			},
+			"script": "match(title, \"^.{3,}$\")"
+		}
+	],
+	"objectViews": [
+		{
+			"defaultObjectView": true,
+			"name": {
+				"en_US": "Board",
+				"pt_BR": "Quadro"
+			},
+			"objectViewColumns": [
+				{
+					"objectFieldName": "title",
+					"priority": 0
+				},
+				{
+					"objectFieldName": "priority",
+					"priority": 1
+				},
+				{
+					"objectFieldName": "state",
+					"priority": 2
+				},
+				{
+					"objectFieldName": "dueDate",
+					"priority": 3
+				},
+				{
+					"objectFieldName": "integrationCode",
+					"priority": 4
+				}
+			],
+			"objectViewSortColumns": [
+				{
+					"objectFieldName": "dueDate",
+					"priority": 0,
+					"sortOrder": "asc"
+				}
+			]
+		}
+	],
+	"pluralLabel": {
+		"en_US": "Tasks",
+		"pt_BR": "Tarefas"
+	},
+	"scope": "company",
+	"titleObjectFieldName": "title"
+}

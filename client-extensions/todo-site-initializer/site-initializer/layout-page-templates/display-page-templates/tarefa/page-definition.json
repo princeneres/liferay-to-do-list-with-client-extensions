@@ -1,0 +1,102 @@
+{
+	"pageElement": {
+		"pageElements": [
+			{
+				"definition": {
+					"fragment": {
+						"key": "todo-task-detail"
+					},
+					"fragmentConfig": {},
+					"fragmentFields": [
+						{
+							"id": "title",
+							"value": {
+								"text": {
+									"mapping": {
+										"fieldKey": "ObjectField_title",
+										"itemReference": {
+											"contextSource": "DisplayPageItem"
+										}
+									}
+								}
+							}
+						},
+						{
+							"id": "description",
+							"value": {
+								"text": {
+									"mapping": {
+										"fieldKey": "ObjectField_description",
+										"itemReference": {
+											"contextSource": "DisplayPageItem"
+										}
+									}
+								}
+							}
+						},
+						{
+							"id": "state",
+							"value": {
+								"text": {
+									"mapping": {
+										"fieldKey": "ObjectField_state",
+										"itemReference": {
+											"contextSource": "DisplayPageItem"
+										}
+									}
+								}
+							}
+						},
+						{
+							"id": "priority",
+							"value": {
+								"text": {
+									"mapping": {
+										"fieldKey": "ObjectField_priority",
+										"itemReference": {
+											"contextSource": "DisplayPageItem"
+										}
+									}
+								}
+							}
+						},
+						{
+							"id": "dueDate",
+							"value": {
+								"text": {
+									"mapping": {
+										"fieldKey": "ObjectField_dueDate",
+										"itemReference": {
+											"contextSource": "DisplayPageItem"
+										}
+									}
+								}
+							}
+						},
+						{
+							"id": "integrationCode",
+							"value": {
+								"text": {
+									"mapping": {
+										"fieldKey": "ObjectField_integrationCode",
+										"itemReference": {
+											"contextSource": "DisplayPageItem"
+										}
+									}
+								}
+							}
+						}
+					],
+					"indexed": true
+				},
+				"type": "Fragment"
+			}
+		],
+		"type": "Root"
+	},
+	"settings": {
+		"masterPage": {
+			"key": "to-do-master"
+		}
+	}
+}

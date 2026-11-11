@@ -1,0 +1,18 @@
+{
+	"friendlyURL": "/home",
+	"hidden": false,
+	"name_i18n": {
+		"en_US": "Início",
+		"pt_BR": "Início"
+	},
+	"priority": 0,
+	"private": false,
+	"system": false,
+	"type": "Content",
+	"typeSettings": [
+		{
+			"key": "published",
+			"value": "true"
+		}
+	]
+}

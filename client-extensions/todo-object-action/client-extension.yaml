@@ -1,0 +1,14 @@
+assemble:
+    - fromTask: bootJar
+todo-object-action:
+    name: To-Do Object Action
+    oAuth2ApplicationExternalReferenceCode: todo-object-action-oauth-application-user-agent
+    resourcePath: /object/action/task
+    type: objectAction
+todo-object-action-oauth-application-user-agent:
+    .serviceAddress: object-action:58081
+    .serviceScheme: http
+    name: To-Do Object Action OAuth Application
+    scopes:
+        - c_task.everything
+    type: oAuthApplicationUserAgent

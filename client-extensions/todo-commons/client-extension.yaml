@@ -1,0 +1,8 @@
+assemble:
+    - from: src
+      into: static
+todo-commons:
+    bareSpecifier: todo-commons
+    name: To-Do Commons
+    type: jsImportMapsEntry
+    url: index.js

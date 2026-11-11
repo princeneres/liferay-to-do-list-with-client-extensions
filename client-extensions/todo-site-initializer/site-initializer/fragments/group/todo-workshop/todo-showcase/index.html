@@ -1,0 +1,128 @@
+<section class="todo-showcase">
+	<h1>Vitrine</h1>
+
+	<p class="lead">Cada item abaixo está funcionando neste site. A coluna "Antes" mostra como o mesmo resultado costumava ser entregue.</p>
+
+	<div class="table-responsive">
+		<table class="table table-autofit table-list">
+			<thead>
+				<tr>
+					<th>Recurso</th>
+					<th>Onde ver</th>
+					<th>Pasta no repositório</th>
+					<th>Antes</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td><strong>Site initializer</strong> <code>siteInitializer</code></td>
+					<td>Este site inteiro: páginas, Object, roles, Style Book</td>
+					<td><code>todo-site-initializer</code></td>
+					<td>Configuração manual em cada ambiente, LAR</td>
+				</tr>
+				<tr>
+					<td><strong>Objects</strong></td>
+					<td>Painel de controle &gt; Objects &gt; Tarefa e Categoria</td>
+					<td><code>site-initializer/object-definitions</code></td>
+					<td>Service Builder, tabela, serviço e tela próprios</td>
+				</tr>
+				<tr>
+					<td><strong>Picklists e state field</strong></td>
+					<td>Mudar o estado de Concluída para Aberta é bloqueado</td>
+					<td><code>site-initializer/list-type-definitions</code></td>
+					<td>Constantes e validação em Java</td>
+				</tr>
+				<tr>
+					<td><strong>Validação</strong></td>
+					<td>Criar uma tarefa com título de 2 letras</td>
+					<td><code>object-definitions/task.json</code></td>
+					<td>Validador em Java ou JavaScript</td>
+				</tr>
+				<tr>
+					<td><strong>Relacionamento e agregação</strong></td>
+					<td>Categoria mostra a quantidade de tarefas</td>
+					<td><code>object-relationships</code>, <code>object-fields</code></td>
+					<td>Chave estrangeira e consulta manual</td>
+				</tr>
+				<tr>
+					<td><strong>Ação <code>update-object-entry</code></strong></td>
+					<td>Tarefa de prioridade alta já nasce em andamento</td>
+					<td><code>site-initializer/object-actions</code></td>
+					<td>ModelListener em módulo OSGi</td>
+				</tr>
+				<tr>
+					<td><strong>Notification Template</strong></td>
+					<td>Sino de notificações ao criar uma tarefa</td>
+					<td><code>site-initializer/notification-templates</code></td>
+					<td>Envio de notificação em Java</td>
+				</tr>
+				<tr>
+					<td><strong>Workflow</strong></td>
+					<td>Process Builder &gt; Category Approval</td>
+					<td><code>site-initializer/workflow-definitions</code></td>
+					<td>Status de aprovação controlado no código</td>
+				</tr>
+				<tr>
+					<td><strong>Custom element</strong> <code>customElement</code></td>
+					<td>Página Início: lista e resumo de tarefas</td>
+					<td><code>todo-app</code></td>
+					<td>Portlet com JSP</td>
+				</tr>
+				<tr>
+					<td><strong>Import map</strong> <code>jsImportMapsEntry</code></td>
+					<td>Os dois widgets usam o mesmo módulo <code>todo-commons</code></td>
+					<td><code>todo-commons</code></td>
+					<td>Código copiado em cada portlet</td>
+				</tr>
+				<tr>
+					<td><strong>Global CSS e JS</strong> <code>globalCSS</code>, <code>globalJS</code></td>
+					<td>Botão de acessibilidade no canto da tela</td>
+					<td><code>todo-global</code></td>
+					<td>Script e CSS dentro do tema</td>
+				</tr>
+				<tr>
+					<td><strong>Theme CSS e favicon</strong> <code>themeCSS</code>, <code>themeFavicon</code></td>
+					<td>Visual do site e ícone da aba</td>
+					<td><code>todo-theme</code></td>
+					<td>WAR de tema com FreeMarker</td>
+				</tr>
+				<tr>
+					<td><strong>Style Book</strong></td>
+					<td>Design &gt; Style Books: trocar a cor primária</td>
+					<td><code>site-initializer/style-books</code></td>
+					<td>Variáveis SCSS no tema</td>
+				</tr>
+				<tr>
+					<td><strong>Master Page e Fragments</strong></td>
+					<td>Cabeçalho e rodapé deste site</td>
+					<td><code>site-initializer/layout-page-templates</code>, <code>fragments</code></td>
+					<td><code>header.ftl</code> e <code>footer.ftl</code></td>
+				</tr>
+				<tr>
+					<td><strong>Collection e Display Page</strong></td>
+					<td>Página Tarefas e o detalhe de cada tarefa</td>
+					<td><code>site-initializer/layouts</code></td>
+					<td>ADT com <code>serviceLocator</code></td>
+				</tr>
+				<tr>
+					<td><strong>Segments e Experiences</strong></td>
+					<td>Início: botão "Ver como Empresa"</td>
+					<td><code>site-initializer/segments-experiences</code></td>
+					<td>Cookie lido e redirecionado via JavaScript</td>
+				</tr>
+				<tr>
+					<td><strong>Microsserviço</strong> <code>objectAction</code></td>
+					<td>Coluna "Integração" preenchida após criar a tarefa</td>
+					<td><code>todo-object-action</code></td>
+					<td>Integração dentro do portlet</td>
+				</tr>
+				<tr>
+					<td><strong>Batch</strong> <code>batch</code></td>
+					<td>Tarefas de exemplo importadas no deploy</td>
+					<td><code>todo-batch</code></td>
+					<td>Script de carga direto no banco</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</section>

@@ -1,0 +1,11 @@
+.todo-header {
+	background-color: var(--white);
+	border-bottom: 1px solid var(--gray-300);
+	margin-bottom: 2rem;
+}
+
+.todo-header-brand {
+	color: var(--primary);
+	font-size: 1.25rem;
+	font-weight: 700;
+}

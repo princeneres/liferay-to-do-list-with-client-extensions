@@ -1,0 +1,13 @@
+assemble:
+    - from: assets
+      into: static
+todo-theme-css:
+    clayURL: css/clay.css
+    frontendTokenDefinitionJSON: src/frontend-token-definition.json
+    mainURL: css/main.css
+    name: To-Do Theme CSS
+    type: themeCSS
+todo-theme-favicon:
+    name: To-Do Favicon
+    type: themeFavicon
+    url: favicon.svg

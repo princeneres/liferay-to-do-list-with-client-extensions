@@ -1,0 +1,47 @@
+services:
+  liferay:
+    depends_on:
+      - postgres
+    environment:
+      LIFERAY_COMPANY_PERIOD_DEFAULT_PERIOD_LOCALE: pt_BR
+      LIFERAY_COMPANY_PERIOD_DEFAULT_PERIOD_TIME_PERIOD_ZONE: America/Sao_Paulo
+      LIFERAY_JDBC_PERIOD_DEFAULT_PERIOD_DRIVER_UPPERCASEC_LASS_UPPERCASEN_AME: org.postgresql.Driver
+      LIFERAY_JDBC_PERIOD_DEFAULT_PERIOD_PASSWORD: liferay
+      LIFERAY_JDBC_PERIOD_DEFAULT_PERIOD_URL: jdbc:postgresql://postgres:5432/lportal
+      LIFERAY_JDBC_PERIOD_DEFAULT_PERIOD_USERNAME: liferay
+      LIFERAY_JVM_OPTS: -Xms2g -Xmx3g
+      LIFERAY_PASSWORDS_PERIOD_DEFAULT_PERIOD_POLICY_PERIOD_CHANGE_PERIOD_REQUIRED: "false"
+      LIFERAY_SETUP_PERIOD_WIZARD_PERIOD_ENABLED: "false"
+      LIFERAY_TERMS_PERIOD_OF_PERIOD_USE_PERIOD_REQUIRED: "false"
+      LIFERAY_USERS_PERIOD_REMINDER_PERIOD_QUERIES_PERIOD_ENABLED: "false"
+      LIFERAY_VIRTUAL_PERIOD_HOSTS_PERIOD_VALID_PERIOD_HOSTS: localhost,127.0.0.1,liferay
+    image: liferay/portal:7.4.3.132-ga132
+    ports:
+      - 8080:8080
+    volumes:
+      - ./bundles/osgi/client-extensions:/opt/liferay/osgi/client-extensions
+      - liferay-data:/opt/liferay/data
+  object-action:
+    command:
+      - java
+      - -jar
+      - /app/todo-object-action.jar
+      - --com.liferay.lxc.dxp.domains=liferay:8080
+      - --com.liferay.lxc.dxp.mainDomain=liferay:8080
+    depends_on:
+      - liferay
+    image: eclipse-temurin:21-jre
+    restart: on-failure
+    volumes:
+      - ./client-extensions/todo-object-action/build/libs:/app:ro
+  postgres:
+    environment:
+      POSTGRES_DB: lportal
+      POSTGRES_PASSWORD: liferay
+      POSTGRES_USER: liferay
+    image: postgres:16-alpine
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+volumes:
+  liferay-data:
+  postgres-data:

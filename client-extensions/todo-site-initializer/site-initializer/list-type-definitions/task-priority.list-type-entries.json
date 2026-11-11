@@ -1,0 +1,29 @@
+[
+	{
+		"externalReferenceCode": "TASK_PRIORITY_LOW",
+		"key": "low",
+		"name": "Low",
+		"name_i18n": {
+			"en-US": "Low",
+			"pt-BR": "Baixa"
+		}
+	},
+	{
+		"externalReferenceCode": "TASK_PRIORITY_MEDIUM",
+		"key": "medium",
+		"name": "Medium",
+		"name_i18n": {
+			"en-US": "Medium",
+			"pt-BR": "Média"
+		}
+	},
+	{
+		"externalReferenceCode": "TASK_PRIORITY_HIGH",
+		"key": "high",
+		"name": "High",
+		"name_i18n": {
+			"en-US": "High",
+			"pt-BR": "Alta"
+		}
+	}
+]

@@ -1,0 +1,18 @@
+{
+	"friendlyURL": "/vitrine",
+	"hidden": false,
+	"name_i18n": {
+		"en_US": "Vitrine",
+		"pt_BR": "Vitrine"
+	},
+	"priority": 2,
+	"private": false,
+	"system": false,
+	"type": "Content",
+	"typeSettings": [
+		{
+			"key": "published",
+			"value": "true"
+		}
+	]
+}

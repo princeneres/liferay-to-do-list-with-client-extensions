@@ -1,0 +1,52 @@
+{
+	"configuration": {
+		"className": "com.liferay.object.rest.dto.v1_0.ObjectEntry",
+		"parameters": {
+			"containsHeaders": "true",
+			"createStrategy": "INSERT",
+			"importStrategy": "ON_ERROR_CONTINUE"
+		},
+		"taskItemDelegateName": "C_Task"
+	},
+	"items": [
+		{
+			"description": "Conferir cláusulas de reajuste antes da renovação.",
+			"externalReferenceCode": "TASK_SAMPLE_1",
+			"priority": "high",
+			"r_categoryTasks_c_categoryERC": "CATEGORY_WORK",
+			"title": "Revisar contrato do fornecedor",
+			"dueDate": "2026-11-20"
+		},
+		{
+			"description": "Consolidar indicadores do trimestre.",
+			"externalReferenceCode": "TASK_SAMPLE_2",
+			"priority": "medium",
+			"r_categoryTasks_c_categoryERC": "CATEGORY_WORK",
+			"title": "Preparar apresentação trimestral",
+			"dueDate": "2026-11-28"
+		},
+		{
+			"description": "Ler a documentação de validações e ações.",
+			"externalReferenceCode": "TASK_SAMPLE_3",
+			"priority": "medium",
+			"r_categoryTasks_c_categoryERC": "CATEGORY_STUDY",
+			"title": "Estudar Liferay Objects",
+			"dueDate": "2026-12-05"
+		},
+		{
+			"description": "Módulos de frontend e microsserviço.",
+			"externalReferenceCode": "TASK_SAMPLE_4",
+			"priority": "low",
+			"r_categoryTasks_c_categoryERC": "CATEGORY_STUDY",
+			"title": "Fazer o curso de client extensions",
+			"dueDate": "2026-12-15"
+		},
+		{
+			"description": "",
+			"externalReferenceCode": "TASK_SAMPLE_5",
+			"priority": "low",
+			"r_categoryTasks_c_categoryERC": "CATEGORY_PERSONAL",
+			"title": "Agendar revisão do carro"
+		}
+	]
+}

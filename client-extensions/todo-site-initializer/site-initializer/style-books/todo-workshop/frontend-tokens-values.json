@@ -1,0 +1,30 @@
+{
+	"brandColor1": {
+		"cssVariableMapping": "brand-color-1",
+		"value": "#0b6e4f"
+	},
+	"brandColor3": {
+		"cssVariableMapping": "brand-color-3",
+		"value": "#12a37a"
+	},
+	"primaryColor": {
+		"cssVariableMapping": "primary",
+		"value": "#0b6e4f"
+	},
+	"btnPrimaryBackgroundColor": {
+		"cssVariableMapping": "btn-primary-background-color",
+		"value": "#0b6e4f"
+	},
+	"btnPrimaryBorderColor": {
+		"cssVariableMapping": "btn-primary-border-color",
+		"value": "#0b6e4f"
+	},
+	"btnPrimaryHoverBackgroundColor": {
+		"cssVariableMapping": "btn-primary-hover-background-color",
+		"value": "#095a41"
+	},
+	"borderRadiusLg": {
+		"cssVariableMapping": "border-radius-lg",
+		"value": "0.75rem"
+	}
+}

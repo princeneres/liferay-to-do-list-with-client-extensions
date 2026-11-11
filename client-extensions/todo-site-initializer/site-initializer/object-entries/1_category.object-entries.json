@@ -1,0 +1,17 @@
+{
+	"object-entries": [
+		{
+			"externalReferenceCode": "CATEGORY_WORK",
+			"name": "Trabalho"
+		},
+		{
+			"externalReferenceCode": "CATEGORY_STUDY",
+			"name": "Estudos"
+		},
+		{
+			"externalReferenceCode": "CATEGORY_PERSONAL",
+			"name": "Pessoal"
+		}
+	],
+	"objectDefinitionName": "Category"
+}

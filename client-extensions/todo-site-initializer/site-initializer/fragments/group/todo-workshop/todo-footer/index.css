@@ -1,0 +1,6 @@
+.todo-footer {
+	background-color: var(--gray-100);
+	border-top: 1px solid var(--gray-300);
+	color: var(--secondary);
+	margin-top: 3rem;
+}

@@ -1,0 +1,75 @@
+<?xml version="1.0"?>
+
+<workflow-definition
+	xmlns="urn:liferay.com:liferay-workflow_7.4.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="urn:liferay.com:liferay-workflow_7.4.0 http://www.liferay.com/dtd/liferay-workflow-definition_7_4_0.xsd"
+>
+	<name>Category Approval</name>
+	<description>A task manager approves new categories.</description>
+	<version>1</version>
+	<state>
+		<name>created</name>
+		<initial>true</initial>
+		<transitions>
+			<transition>
+				<name>review</name>
+				<target>review</target>
+			</transition>
+		</transitions>
+	</state>
+	<task>
+		<name>review</name>
+		<actions>
+			<notification>
+				<name>Review Notification</name>
+				<template><![CDATA[${userName} sent a new category for review.]]></template>
+				<template-language>freemarker</template-language>
+				<notification-type>user-notification</notification-type>
+				<recipients receptionType="to">
+					<assignees />
+				</recipients>
+				<execution-type>onAssignment</execution-type>
+			</notification>
+		</actions>
+		<assignments>
+			<roles>
+				<role>
+					<role-type>regular</role-type>
+					<name>Task Manager</name>
+				</role>
+			</roles>
+		</assignments>
+		<transitions>
+			<transition>
+				<name>approve</name>
+				<target>approved</target>
+			</transition>
+			<transition>
+				<name>reject</name>
+				<target>rejected</target>
+				<default>false</default>
+			</transition>
+		</transitions>
+	</task>
+	<state>
+		<name>approved</name>
+		<actions>
+			<action>
+				<name>approve</name>
+				<status>0</status>
+				<execution-type>onEntry</execution-type>
+			</action>
+		</actions>
+	</state>
+	<state>
+		<name>rejected</name>
+		<actions>
+			<action>
+				<name>reject</name>
+				<status>4</status>
+				<execution-type>onEntry</execution-type>
+			</action>
+		</actions>
+	</state>
+</workflow-definition>

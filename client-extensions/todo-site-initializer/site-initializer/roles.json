@@ -1,0 +1,12 @@
+[
+	{
+		"actions": [],
+		"name": "Task Manager",
+		"name_i18n": {
+			"en-US": "Task Manager",
+			"pt-BR": "Gestor de tarefas"
+		},
+		"scope": 1,
+		"type": 1
+	}
+]

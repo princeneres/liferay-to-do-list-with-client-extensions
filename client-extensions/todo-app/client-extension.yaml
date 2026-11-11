@@ -1,0 +1,23 @@
+assemble:
+    - from: build/vite
+      into: static
+todo-app:
+    friendlyURLMapping: todo-app
+    htmlElementName: todo-app
+    instanceable: false
+    name: To-Do App
+    portletCategoryName: category.client-extensions
+    type: customElement
+    urls:
+        - todo-app.*.js
+    useESM: true
+todo-summary:
+    friendlyURLMapping: todo-summary
+    htmlElementName: todo-summary
+    instanceable: true
+    name: To-Do Summary
+    portletCategoryName: category.client-extensions
+    type: customElement
+    urls:
+        - todo-summary.*.js
+    useESM: true

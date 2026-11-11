@@ -1,0 +1,11 @@
+assemble:
+    - from: assets
+      into: static
+todo-global-css:
+    name: To-Do Global CSS
+    type: globalCSS
+    url: accessibility.css
+todo-global-js:
+    name: To-Do Global JS
+    type: globalJS
+    url: accessibility.js

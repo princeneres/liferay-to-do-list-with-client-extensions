@@ -1,0 +1,14 @@
+[
+	{
+		"active": true,
+		"externalReferenceCode": "TODO_TASK_NOTIFY_CREATED",
+		"label": {
+			"en_US": "Notify task managers",
+			"pt_BR": "Notificar gestores de tarefas"
+		},
+		"name": "notifyTaskCreated",
+		"objectActionExecutorKey": "notification",
+		"objectActionTriggerKey": "onAfterAdd",
+		"objectDefinitionId": "[$OBJECT_DEFINITION_ID:Task$]"
+	}
+]

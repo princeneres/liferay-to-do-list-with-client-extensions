@@ -1,0 +1,29 @@
+[
+	{
+		"externalReferenceCode": "TASK_STATE_OPEN",
+		"key": "open",
+		"name": "Open",
+		"name_i18n": {
+			"en-US": "Open",
+			"pt-BR": "Aberta"
+		}
+	},
+	{
+		"externalReferenceCode": "TASK_STATE_IN_PROGRESS",
+		"key": "inProgress",
+		"name": "In progress",
+		"name_i18n": {
+			"en-US": "In progress",
+			"pt-BR": "Em andamento"
+		}
+	},
+	{
+		"externalReferenceCode": "TASK_STATE_DONE",
+		"key": "done",
+		"name": "Done",
+		"name_i18n": {
+			"en-US": "Done",
+			"pt-BR": "Concluída"
+		}
+	}
+]

@@ -1,0 +1,18 @@
+{
+	"friendlyURL": "/tarefas",
+	"hidden": false,
+	"name_i18n": {
+		"en_US": "Tarefas",
+		"pt_BR": "Tarefas"
+	},
+	"priority": 1,
+	"private": false,
+	"system": false,
+	"type": "Content",
+	"typeSettings": [
+		{
+			"key": "published",
+			"value": "true"
+		}
+	]
+}
