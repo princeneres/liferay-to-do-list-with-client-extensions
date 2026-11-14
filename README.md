@@ -62,6 +62,8 @@ A GA132 não oferece API para estes vínculos, então eles são feitos na interf
 
 - O site initializer falha se for processado durante a subida do Liferay; o deploy precisa ser feito com o portal no ar.
 - O escopo OAuth de um Object é resolvido quando o app OAuth é criado, e o nome é em minúsculas (`c_task.everything`). Por isso o microsserviço e o batch são implantados depois do Object.
+- O batch precisa das categorias criadas pelo site initializer; implantado junto com ele, todas as tarefas de exemplo são rejeitadas. Por isso `./gradlew deploy` é bloqueado e o deploy passa pelo `./workshop.sh`.
+- No bundle local com Hypersonic (`initBundle`), criar uma tarefa trava o portal: a ação do Object fica esperando um lock de tabela. Use o ambiente Docker com PostgreSQL.
 - Batch de Object Entry não aceita `UPSERT`; o batch usa `INSERT` e ignora as tarefas que já existem.
 - O site initializer não vincula workflow a Objects nem aplica client extensions ao site; daí os passos manuais.
 - Groovy é bloqueado no workflow; a aprovação usa `<status>`.

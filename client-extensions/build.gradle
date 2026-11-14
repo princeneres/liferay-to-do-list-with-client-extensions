@@ -4,3 +4,14 @@ node {
 	nodeVersion = "20.10.0"
 	global = false
 }
+
+// Deployed together, the batch runs before the site initializer has created
+// the categories its tasks reference, and every sample task is rejected.
+
+gradle.taskGraph.whenReady {
+	taskGraph ->
+
+	if (taskGraph.allTasks.count { it.name == "deploy" && it.project.parent == project } > 1) {
+		throw new GradleException("Client extensions must be deployed one at a time, in order: run ./workshop.sh up")
+	}
+}
