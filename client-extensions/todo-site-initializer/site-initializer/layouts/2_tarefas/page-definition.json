@@ -4,16 +4,26 @@
 			{
 				"definition": {
 					"fragment": {
-						"key": "BASIC_COMPONENT-heading"
+						"key": "todo-hero"
 					},
 					"fragmentConfig": {},
 					"fragmentFields": [
 						{
-							"id": "element-text",
+							"id": "title",
 							"value": {
 								"text": {
 									"value_i18n": {
 										"pt_BR": "Tarefas"
+									}
+								}
+							}
+						},
+						{
+							"id": "text",
+							"value": {
+								"text": {
+									"value_i18n": {
+										"pt_BR": "Uma Collection de Objects. Abra uma tarefa para ver a Display Page."
 									}
 								}
 							}

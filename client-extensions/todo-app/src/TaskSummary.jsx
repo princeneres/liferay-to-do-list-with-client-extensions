@@ -1,9 +1,6 @@
 import ClayAlert from '@clayui/alert';
-import ClayLabel from '@clayui/label';
 import React, {useEffect, useState} from 'react';
 import {getPicklist, getTasks, onChange} from 'todo-commons';
-
-import {STATE_DISPLAY_TYPES} from './displayTypes.js';
 
 export default function TaskSummary() {
 	const [error, setError] = useState(null);
@@ -29,21 +26,46 @@ export default function TaskSummary() {
 		return <ClayAlert displayType="danger">{error}</ClayAlert>;
 	}
 
-	return (
-		<div className="row">
-			{states.map((state) => (
-				<div className="col-md-4" key={state.key}>
-					<div className="card card-body text-center">
-						<div className="display-4">
-							{tasks.filter((task) => task.state?.key === state.key).length}
-						</div>
+	const counts = states.map((state) => ({
+		...state,
+		count: tasks.filter((task) => task.state?.key === state.key).length,
+	}));
 
-						<ClayLabel displayType={STATE_DISPLAY_TYPES[state.key]}>
-							{state.name}
-						</ClayLabel>
-					</div>
-				</div>
-			))}
-		</div>
+	const doneCount = counts.find(({key}) => key === 'done')?.count ?? 0;
+
+	return (
+		<section aria-label="Resumo das tarefas" className="todo-summary">
+			<p className="todo-summary-headline">
+				<strong>{doneCount}</strong> de {tasks.length} concluídas
+			</p>
+
+			<div aria-hidden="true" className="todo-summary-bar">
+				{counts.map(
+					(state) =>
+						state.count > 0 && (
+							<span
+								className={`todo-state-${state.key}`}
+								key={state.key}
+								style={{flexGrow: state.count}}
+							/>
+						)
+				)}
+			</div>
+
+			<ul className="todo-summary-legend">
+				{counts.map((state) => (
+					<li key={state.key}>
+						<span
+							aria-hidden="true"
+							className={`todo-summary-dot todo-state-${state.key}`}
+						/>
+
+						<strong>{state.count}</strong>
+
+						{state.name}
+					</li>
+				))}
+			</ul>
+		</section>
 	);
 }

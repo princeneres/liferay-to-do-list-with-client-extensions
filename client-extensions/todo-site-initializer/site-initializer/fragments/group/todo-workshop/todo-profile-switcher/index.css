@@ -1,0 +1,41 @@
+.todo-profile-switcher {
+	align-items: center;
+	display: flex;
+	gap: 0.75rem;
+	margin-bottom: 2.5rem;
+}
+
+.todo-profile-switcher-label {
+	color: var(--todo-muted);
+}
+
+.todo-profile-switcher-options {
+	background-color: var(--todo-surface);
+	border: 1px solid var(--todo-line);
+	border-radius: 999px;
+	display: inline-flex;
+	padding: 0.1875rem;
+}
+
+.todo-profile-switcher-options button {
+	background: none;
+	border: 0;
+	border-radius: 999px;
+	color: var(--todo-muted);
+	font-weight: 500;
+	padding: 0.3125rem 1rem;
+}
+
+.todo-profile-switcher-options button:hover {
+	color: var(--todo-ink);
+}
+
+.todo-profile-switcher-options button[aria-pressed='true'] {
+	background-color: var(--todo-ink);
+	color: #fff;
+}
+
+.todo-profile-switcher-options button:focus-visible {
+	outline: 2px solid var(--primary);
+	outline-offset: 2px;
+}

@@ -1,5 +1,21 @@
 .todo-hero {
-	background: linear-gradient(135deg, var(--brand-color-1), var(--brand-color-3));
-	border-radius: var(--border-radius-lg);
-	color: var(--white);
+	margin-bottom: 1.5rem;
+}
+
+.todo-hero h1 {
+	color: var(--todo-ink);
+	font-size: clamp(2rem, 5vw, 2.875rem);
+	font-weight: 600;
+	letter-spacing: -0.03em;
+	line-height: 1.08;
+	margin-bottom: 0.75rem;
+	max-width: 18ch;
+}
+
+.todo-hero p {
+	color: var(--todo-muted);
+	font-size: 1.125rem;
+	line-height: 1.5;
+	margin-bottom: 0;
+	max-width: 52ch;
 }

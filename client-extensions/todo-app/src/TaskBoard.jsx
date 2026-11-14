@@ -1,9 +1,7 @@
 import ClayAlert from '@clayui/alert';
 import ClayButton from '@clayui/button';
-import ClayForm, {ClayInput, ClaySelectWithOption} from '@clayui/form';
-import ClayLabel from '@clayui/label';
+import {ClayInput, ClaySelectWithOption} from '@clayui/form';
 import ClayLoadingIndicator from '@clayui/loading-indicator';
-import ClayTable from '@clayui/table';
 import React, {useCallback, useEffect, useState} from 'react';
 import {
 	addTask,
@@ -15,8 +13,6 @@ import {
 	updateTask,
 } from 'todo-commons';
 
-import {PRIORITY_DISPLAY_TYPES} from './displayTypes.js';
-
 const EMPTY_TASK = {
 	categoryId: '',
 	description: '',
@@ -26,9 +22,10 @@ const EMPTY_TASK = {
 };
 
 function formatDate(date) {
-	return date
-		? new Date(date).toLocaleDateString(undefined, {timeZone: 'UTC'})
-		: '—';
+	return new Date(date).toLocaleDateString(
+		Liferay.ThemeDisplay.getBCP47LanguageId(),
+		{day: 'numeric', month: 'short', timeZone: 'UTC'}
+	);
 }
 
 function toOptions(entries, labelKey) {
@@ -100,36 +97,43 @@ export default function TaskBoard() {
 
 	const getCategoryName = (task) =>
 		categories.find(({id}) => id === task.r_categoryTasks_c_categoryId)
-			?.name ?? '—';
+			?.name;
 
 	return (
-		<div className="todo-app">
-			<ClayForm className="card card-body mb-4" onSubmit={handleSubmit}>
-				<div className="row">
-					<ClayForm.Group className="col-md-4">
-						<label htmlFor="todoTitle">Título</label>
+		<div className="todo-board">
+			<form className="todo-composer" onSubmit={handleSubmit}>
+				<div className="todo-composer-main">
+					<label className="sr-only" htmlFor="todoTitle">
+						Título
+					</label>
 
-						<ClayInput
-							id="todoTitle"
-							name="title"
-							onChange={handleChange}
-							required
-							value={form.title}
-						/>
-					</ClayForm.Group>
+					<ClayInput
+						className="todo-composer-title"
+						id="todoTitle"
+						name="title"
+						onChange={handleChange}
+						placeholder="O que precisa ser feito?"
+						required
+						value={form.title}
+					/>
 
-					<ClayForm.Group className="col-md-8">
+					<ClayButton type="submit">Adicionar</ClayButton>
+				</div>
+
+				<div className="todo-composer-details">
+					<div className="todo-composer-description">
 						<label htmlFor="todoDescription">Descrição</label>
 
 						<ClayInput
 							id="todoDescription"
 							name="description"
 							onChange={handleChange}
+							placeholder="Opcional"
 							value={form.description}
 						/>
-					</ClayForm.Group>
+					</div>
 
-					<ClayForm.Group className="col-md-3">
+					<div>
 						<label htmlFor="todoPriority">Prioridade</label>
 
 						<ClaySelectWithOption
@@ -139,9 +143,9 @@ export default function TaskBoard() {
 							options={toOptions(priorities, 'name')}
 							value={form.priority}
 						/>
-					</ClayForm.Group>
+					</div>
 
-					<ClayForm.Group className="col-md-3">
+					<div>
 						<label htmlFor="todoCategory">Categoria</label>
 
 						<ClaySelectWithOption
@@ -154,9 +158,9 @@ export default function TaskBoard() {
 							]}
 							value={form.categoryId}
 						/>
-					</ClayForm.Group>
+					</div>
 
-					<ClayForm.Group className="col-md-3">
+					<div>
 						<label htmlFor="todoDueDate">Prazo</label>
 
 						<ClayInput
@@ -166,15 +170,9 @@ export default function TaskBoard() {
 							type="date"
 							value={form.dueDate}
 						/>
-					</ClayForm.Group>
-
-					<div className="align-items-end col-md-3 d-flex form-group">
-						<ClayButton block type="submit">
-							Adicionar tarefa
-						</ClayButton>
 					</div>
 				</div>
-			</ClayForm>
+			</form>
 
 			{error && (
 				<ClayAlert
@@ -188,81 +186,79 @@ export default function TaskBoard() {
 
 			{tasks === null ? (
 				<ClayLoadingIndicator />
+			) : tasks.length === 0 ? (
+				<p className="todo-empty">
+					Nenhuma tarefa por aqui. Escreva a primeira no campo acima.
+				</p>
 			) : (
-				<ClayTable hover responsive>
-					<ClayTable.Head>
-						<ClayTable.Row>
-							<ClayTable.Cell headingCell>Título</ClayTable.Cell>
-							<ClayTable.Cell headingCell>Categoria</ClayTable.Cell>
-							<ClayTable.Cell headingCell>Prioridade</ClayTable.Cell>
-							<ClayTable.Cell headingCell>Estado</ClayTable.Cell>
-							<ClayTable.Cell headingCell>Prazo</ClayTable.Cell>
-							<ClayTable.Cell headingCell>Integração</ClayTable.Cell>
-							<ClayTable.Cell headingCell />
-						</ClayTable.Row>
-					</ClayTable.Head>
+				<ul className="todo-list">
+					{tasks.map((task) => (
+						<li
+							className={`todo-item todo-state-${task.state?.key}`}
+							key={task.id}
+						>
+							<span aria-hidden="true" className="todo-item-mark" />
 
-					<ClayTable.Body>
-						{tasks.map((task) => (
-							<ClayTable.Row key={task.id}>
-								<ClayTable.Cell expanded headingTitle>
-									{task.title}
+							<div className="todo-item-body">
+								<p className="todo-item-title">{task.title}</p>
 
-									{task.description && (
-										<div className="small text-secondary">
-											{task.description}
-										</div>
+								{task.description && (
+									<p className="todo-item-description">
+										{task.description}
+									</p>
+								)}
+
+								<p className="todo-item-meta">
+									<span
+										className={`todo-item-priority todo-priority-${task.priority?.key}`}
+									>
+										Prioridade {task.priority?.name?.toLocaleLowerCase()}
+									</span>
+
+									{getCategoryName(task) && (
+										<span>{getCategoryName(task)}</span>
 									)}
-								</ClayTable.Cell>
 
-								<ClayTable.Cell>{getCategoryName(task)}</ClayTable.Cell>
+									{task.dueDate && (
+										<span>Prazo {formatDate(task.dueDate)}</span>
+									)}
 
-								<ClayTable.Cell>
-									<ClayLabel
-										displayType={
-											PRIORITY_DISPLAY_TYPES[task.priority?.key]
-										}
-									>
-										{task.priority?.name}
-									</ClayLabel>
-								</ClayTable.Cell>
+									{task.integrationCode ? (
+										<code>{task.integrationCode}</code>
+									) : (
+										<span>Integração pendente</span>
+									)}
+								</p>
+							</div>
 
-								<ClayTable.Cell>
-									<ClaySelectWithOption
-										aria-label="Estado"
-										onChange={({target}) =>
-											run(() =>
-												updateTask(task.id, {
-													state: target.value,
-												})
-											)
-										}
-										options={toOptions(states, 'name')}
-										sizing="sm"
-										style={{minWidth: '10rem'}}
-										value={task.state?.key}
-									/>
-								</ClayTable.Cell>
+							<div className="todo-item-actions">
+								<ClaySelectWithOption
+									aria-label={`Estado de ${task.title}`}
+									onChange={({target}) =>
+										run(() =>
+											updateTask(task.id, {
+												state: target.value,
+											})
+										)
+									}
+									options={toOptions(states, 'name')}
+									sizing="sm"
+									value={task.state?.key}
+								/>
 
-								<ClayTable.Cell>{formatDate(task.dueDate)}</ClayTable.Cell>
-
-								<ClayTable.Cell className="text-nowrap">
-									<code>{task.integrationCode || '—'}</code>
-								</ClayTable.Cell>
-
-								<ClayTable.Cell>
-									<ClayButton
-										displayType="secondary"
-										onClick={() => run(() => deleteTask(task.id))}
-										size="sm"
-									>
-										Excluir
-									</ClayButton>
-								</ClayTable.Cell>
-							</ClayTable.Row>
-						))}
-					</ClayTable.Body>
-				</ClayTable>
+								<ClayButton
+									aria-label={`Excluir ${task.title}`}
+									className="todo-item-delete"
+									displayType="unstyled"
+									onClick={() => run(() => deleteTask(task.id))}
+									size="sm"
+								>
+									Excluir
+								</ClayButton>
+							</div>
+						</li>
+					))}
+				</ul>
 			)}
 		</div>
 	);

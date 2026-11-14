@@ -1,11 +1,23 @@
 {
-	"brandColor1": {
-		"cssVariableMapping": "brand-color-1",
-		"value": "#0b6e4f"
+	"bodyBgColor": {
+		"cssVariableMapping": "body-bg",
+		"value": "#f3f5f4"
 	},
-	"brandColor3": {
-		"cssVariableMapping": "brand-color-3",
-		"value": "#12a37a"
+	"bodyColor": {
+		"cssVariableMapping": "body-color",
+		"value": "#17201d"
+	},
+	"fontFamilyBase": {
+		"cssVariableMapping": "font-family-base",
+		"value": "'Instrument Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif"
+	},
+	"fontFamilySansSerif": {
+		"cssVariableMapping": "font-family-sans-serif",
+		"value": "'Instrument Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif"
+	},
+	"fontSizeBase": {
+		"cssVariableMapping": "font-size-base",
+		"value": "0.9375rem"
 	},
 	"primaryColor": {
 		"cssVariableMapping": "primary",

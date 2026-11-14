@@ -6,11 +6,7 @@ const current = document.cookie
 	?.split('=')[1] || 'pessoa';
 
 fragmentElement.querySelectorAll('[data-profile]').forEach((button) => {
-	const selected = button.dataset.profile === current;
-
-	button.classList.toggle('btn-primary', selected);
-	button.classList.toggle('btn-secondary', !selected);
-	button.setAttribute('aria-pressed', selected);
+	button.setAttribute('aria-pressed', button.dataset.profile === current);
 
 	button.addEventListener('click', () => {
 		document.cookie = `${COOKIE_NAME}=${button.dataset.profile}; path=/; max-age=31536000; SameSite=Lax`;

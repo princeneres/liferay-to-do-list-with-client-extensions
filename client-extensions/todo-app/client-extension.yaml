@@ -2,6 +2,8 @@ assemble:
     - from: build/vite
       into: static
 todo-app:
+    cssURLs:
+        - todo-app.css
     friendlyURLMapping: todo-app
     htmlElementName: todo-app
     instanceable: false
@@ -12,6 +14,8 @@ todo-app:
         - todo-app.*.js
     useESM: true
 todo-summary:
+    cssURLs:
+        - todo-app.css
     friendlyURLMapping: todo-summary
     htmlElementName: todo-summary
     instanceable: true

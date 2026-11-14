@@ -1,6 +1,15 @@
 .todo-footer {
-	background-color: var(--gray-100);
-	border-top: 1px solid var(--gray-300);
-	color: var(--secondary);
-	margin-top: 3rem;
+	border-top: 1px solid var(--todo-line);
+	color: var(--todo-muted);
+	font-size: 0.875rem;
+	margin-top: 4rem;
+	padding: 1.75rem 0;
+}
+
+.todo-footer code {
+	background-color: var(--todo-surface);
+	border: 1px solid var(--todo-line);
+	border-radius: 0.375rem;
+	color: var(--todo-ink);
+	padding: 0.0625rem 0.375rem;
 }

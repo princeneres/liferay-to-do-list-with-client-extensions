@@ -1,4 +1,5 @@
 {
+	"cssPath": "index.css",
 	"htmlPath": "index.html",
 	"name": "To-Do Task Card",
 	"type": "component"

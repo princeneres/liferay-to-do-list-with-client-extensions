@@ -1,19 +1,29 @@
 <article class="todo-task-detail">
+	<a class="todo-task-detail-back" href="${themeDisplay.getPathFriendlyURLPublic()}${themeDisplay.getScopeGroup().getFriendlyURL()}/tarefas">Todas as tarefas</a>
+
 	<h1 data-lfr-editable-id="title" data-lfr-editable-type="text">Título da tarefa</h1>
 
-	<p class="lead" data-lfr-editable-id="description" data-lfr-editable-type="text">Descrição</p>
+	<p class="todo-task-detail-description" data-lfr-editable-id="description" data-lfr-editable-type="text">Descrição</p>
 
-	<dl class="row">
-		<dt class="col-sm-3">Estado</dt>
-		<dd class="col-sm-9" data-lfr-editable-id="state" data-lfr-editable-type="text">Estado</dd>
+	<dl>
+		<div>
+			<dt>Estado</dt>
+			<dd data-lfr-editable-id="state" data-lfr-editable-type="text">Estado</dd>
+		</div>
 
-		<dt class="col-sm-3">Prioridade</dt>
-		<dd class="col-sm-9" data-lfr-editable-id="priority" data-lfr-editable-type="text">Prioridade</dd>
+		<div>
+			<dt>Prioridade</dt>
+			<dd data-lfr-editable-id="priority" data-lfr-editable-type="text">Prioridade</dd>
+		</div>
 
-		<dt class="col-sm-3">Prazo</dt>
-		<dd class="col-sm-9" data-lfr-editable-id="dueDate" data-lfr-editable-type="text">—</dd>
+		<div>
+			<dt>Prazo</dt>
+			<dd data-lfr-editable-id="dueDate" data-lfr-editable-type="text">—</dd>
+		</div>
 
-		<dt class="col-sm-3">Código de integração</dt>
-		<dd class="col-sm-9"><code data-lfr-editable-id="integrationCode" data-lfr-editable-type="text">—</code></dd>
+		<div>
+			<dt>Código de integração</dt>
+			<dd><code data-lfr-editable-id="integrationCode" data-lfr-editable-type="text">—</code></dd>
+		</div>
 	</dl>
 </article>
