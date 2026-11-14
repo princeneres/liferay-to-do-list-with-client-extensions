@@ -52,7 +52,14 @@ export async function getPicklist(externalReferenceCode) {
 		`/o/headless-admin-list-type/v1.0/list-type-definitions/by-external-reference-code/${externalReferenceCode}`
 	);
 
-	return listTypeEntries;
+	const languageId = Liferay.ThemeDisplay.getBCP47LanguageId();
+
+	// This admin API ignores Accept-Language: name is always the default locale.
+
+	return listTypeEntries.map((entry) => ({
+		...entry,
+		name: entry.name_i18n?.[languageId] ?? entry.name,
+	}));
 }
 
 export async function getTasks() {
