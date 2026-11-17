@@ -69,3 +69,8 @@ A GA132 não oferece API para estes vínculos, então eles são feitos na interf
 - Groovy é bloqueado no workflow; a aprovação usa `<status>`.
 - As expressões de ação não têm data atual.
 - Reimplantar o site initializer duplica as experiências de segmento; para recomeçar, use `./workshop.sh reset`.
+
+## Referências
+
+- [lgdd/liferay-client-extensions-samples](https://github.com/lgdd/liferay-client-extensions-samples): exemplos de cada tipo de client extension.
+- [lgdd/lfr-cli](https://github.com/lgdd/lfr-cli): CLI para criar workspaces e client extensions do Liferay.
